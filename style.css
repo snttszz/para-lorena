@@ -1,0 +1,124 @@
+body {
+  background: linear-gradient(to right, #0a0a0a, #1c002e);
+  color: #e0c9ff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  position: relative;
+  overflow-x: hidden;
+}
+/* Fundo com muitos corações finos */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.8 4.6c-1.5-1.4-3.9-1.4-5.4 0L12 8l-3.4-3.4c-1.5-1.4-3.9-1.4-5.4 0s-1.5 3.6 0 5l8.8 8.8 8.8-8.8c1.5-1.4 1.5-3.6 0-5z'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  opacity: 0.1;
+  z-index: 0;
+  animation: moverCoracoes 60s linear infinite;
+  pointer-events: none;
+}
+
+
+/* Animação suave dos corações */
+@keyframes moverCoracoes {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-300px, -300px);
+  }
+}
+
+.tela {
+  display: none;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.tela#tela-login {
+  display: block;
+}
+
+input[type="date"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2e004d;
+  color: white;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #8000ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+}
+
+button:hover {
+  background-color: #b366ff;
+}
+
+.mensagem {
+  margin: 20px auto;
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  padding: 0 15px;
+}
+
+.galeria img {
+  width: 100%;
+  max-width: 240px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #8000ff;
+}
+
+.animacao {
+  font-size: 2rem;
+  margin-top: 30px;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+#mensagem-erro {
+  color: #ff8080;
+}
+
+/* 📱 Responsividade extra para celular */
+@media (max-width: 600px) {
+  .tela {
+    padding: 30px 10px;
+  }
+
+  .mensagem {
+    font-size: 1rem;
+  }
+
+  .galeria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
